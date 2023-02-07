@@ -52,6 +52,8 @@ export const BlogPost = () => {
 
 export default BlogPost;
 
-const getpostData = (id : string) => {
-  return axios.get(`http://localhost:3004/posts/${id}`).then(({ data }) => data);
+const getpostData = (id: string) => {
+  return axios
+    .get(`http://localhost:3004/posts/${id}`)
+    .then(({ data }) => data);
 };
