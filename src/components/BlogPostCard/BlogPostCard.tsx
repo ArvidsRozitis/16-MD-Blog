@@ -20,7 +20,7 @@ export const BlogPostCard = ({ title, author, content, id }: PostProps) => {
         <div className={style.infoWrapper}>
           <div className={style.topWrapper}>
             <h2 className={style.title}>{title}</h2>
-            <span className={style.date}>2022.10.01.</span>
+            <span className={style.date}>created: 2022.10.01.</span>
           </div>
           <div>
             <span className={style.helperText}>created by: </span>

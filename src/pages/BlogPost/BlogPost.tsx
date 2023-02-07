@@ -12,15 +12,24 @@ type Post = {
 };
 
 export const BlogPost = () => {
-  const { id }: any = useParams();
+  const { id } = useParams();
   const { data, isLoading } = useQuery<Post>({
     queryKey: ["post"],
-    queryFn: () => getpostData(id),
+    queryFn: () => getpostData(id!),
   });
 
+  if (isLoading) {
+    return <h1>Loading....</h1>;
+  }
+  if (!data) {
+    throw Error("something went wrong!");
+  }
+
+  console.log(data);
+
   return (
-    <div className={style.wrapper}>
-      <div className={style.container}>
+    <div className={style.postWrapper}>
+      <div className={style.postContainer}>
         <img
           src="https://picsum.photos/400"
           alt="blog picture"
@@ -28,24 +37,23 @@ export const BlogPost = () => {
         />
         <div className={style.infoWrapper}>
           <div className={style.topWrapper}>
-            <h2 className={style.title}>{"title"}</h2>
-            <span className={style.date}>2022.10.01.</span>
+            <h2 className={style.title}>{data.title}</h2>
+            <span className={style.date}>created: 2022.10.01.</span>
           </div>
-          <div>
-            <span className={style.helperText}>created by: </span>
-            <span className={style.user}>{"author"}</span>
-          </div>
-          <p className={style.paragraph}>{"content"}</p>
-          <div className={style.botWrapper}>
+          <div className={style.secoundWrapper}>
+            <div>
+              <span className={style.helperText}>created by: </span>
+              <span className={style.user}>{data.author}</span>
+            </div>
             <div className={style.commentCountContainer}>
+              <label className={style.helperText}>last activity: 2022.10.13.</label>
               <img src={commentIcon} alt="icon" className={style.commentIcon} />
               <span className={style.commentCount}>0</span>
             </div>
-            <a className={style.comments}>read more</a>
           </div>
+          <p className={style.paragraph}>{data.content}</p>
         </div>
       </div>
-      <hr className={style.hr} />
     </div>
   );
 };

@@ -9,7 +9,7 @@
 
 .app {
   margin: 20px;
-  width: calc(100vw - 50px);
+  width: calc(80vw);
   max-width: 1200px;
   min-width: 320px;
   background-color: rgb(175, 175, 175);
@@ -21,9 +21,9 @@
 .nav__bar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   padding: 0px 30px;
-  gap: 20px;
   background-color: rgb(247, 247, 247);
   height: 60px;
   border-radius: 20px 20px 0px 0px;
@@ -40,5 +40,31 @@
     text-decoration: underline;
     font-size: 1.5rem;
     font-weight: 700;
+  }
+}
+
+.pageSelection {
+  display: flex;
+  gap: 10px;
+}
+
+.button__add-Post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 10px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid black;
+  background-color: #9acd32;
+  cursor: pointer;
+  transition: margin-top 0.2s, margin-top 0.2s, box-shadow 0.2s, background-color 0.2s;
+
+  &:hover {
+    box-shadow: 0px 0px 3px 3px #dcdcdc;
+    margin-top: 1px;
+    margin-right: 1px;
+    background-color: #afe643;
   }
 }
