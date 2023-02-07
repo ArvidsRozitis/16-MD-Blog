@@ -27,7 +27,11 @@ const CommentList = ({ id }: any) => {
   return (
     <div>
       {data.map((comment) => (
-        <Comment key={Math.random()} author={comment.author} commentText={comment.commentText} />
+        <Comment
+          key={Math.random()}
+          author={comment.author}
+          commentText={comment.commentText}
+        />
       ))}
     </div>
   );

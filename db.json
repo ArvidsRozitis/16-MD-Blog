@@ -17,6 +17,12 @@
       "title": "Blog title 2",
       "author": "Inga",
       "content": "Lorem IngaIngaIngaIngaInga dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "title": "Vēl viens blogs",
+      "author": "Amirus",
+      "content": "Hopāaa",
+      "id": 4
     }
   ],
   "comments": [
@@ -67,6 +73,18 @@
       "commentText": "Var pievienot komentārus un tas strādā :D",
       "postId": "3",
       "id": 7
+    },
+    {
+      "author": "Arvīds",
+      "commentText": "Redzēs, kas te notiek",
+      "postId": "2",
+      "id": 8
+    },
+    {
+      "author": "Arvīds",
+      "commentText": "adas",
+      "postId": "2",
+      "id": 9
     }
   ],
   "profile": [
