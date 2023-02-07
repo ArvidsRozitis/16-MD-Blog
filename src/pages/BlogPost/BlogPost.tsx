@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import style from "./BlogPost.module.scss";
 import commentIcon from "../../assets/icons/comment-icon.svg";
+import AddComment from "../../components/AddComment/AddComment";
+import CommentList from "../../components/CommentList/CommentList";
+
 
 type Post = {
   id: number;
@@ -17,6 +20,7 @@ export const BlogPost = () => {
     queryKey: ["post"],
     queryFn: () => getpostData(id!),
   });
+  console.log(id)
 
   if (isLoading) {
     return <h1>Loading....</h1>;
@@ -46,7 +50,9 @@ export const BlogPost = () => {
               <span className={style.user}>{data.author}</span>
             </div>
             <div className={style.commentCountContainer}>
-              <label className={style.helperText}>last activity: 2022.10.13.</label>
+              <label className={style.helperText}>
+                last activity: 2022.10.13.
+              </label>
               <img src={commentIcon} alt="icon" className={style.commentIcon} />
               <span className={style.commentCount}>0</span>
             </div>
@@ -54,6 +60,8 @@ export const BlogPost = () => {
           <p className={style.paragraph}>{data.content}</p>
         </div>
       </div>
+      <AddComment postId={id} />
+      <CommentList id={id} />
     </div>
   );
 };
