@@ -1,4 +1,4 @@
-import style from "./BlogPost.module.scss"
+import style from "./BlogPostCard.module.scss"
 import commentIcon from "../../assets/icons/comment-icon.svg"
 
 type PostProps = {
@@ -10,7 +10,7 @@ type PostProps = {
 
 
 
-export const BlogPost = ({ title, author, content }: PostProps) => {
+export const BlogPostCard = ({ title, author, content ,id }: PostProps) => {
     return (
 
         <div className={style.wrapper}>
@@ -31,7 +31,7 @@ export const BlogPost = ({ title, author, content }: PostProps) => {
                             <img src={commentIcon} alt="icon" className={style.commentIcon} />
                             <span className={style.commentCount}>0</span>
                         </div>
-                        <a className={style.comments}>read more</a>
+                        <span className={style.comments}>read more</span>
                     </div>
                 </div>
             </div>
@@ -40,4 +40,4 @@ export const BlogPost = ({ title, author, content }: PostProps) => {
     );
 };
 
-export default BlogPost;
+export default BlogPostCard;
