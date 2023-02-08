@@ -7,54 +7,24 @@
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     },
     {
-      "id": 3,
-      "title": "Blog title 3",
-      "author": "Rūdis",
-      "content": "Lorem RūdisRūdisRūdisRūdisRūdis dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      "id": 2,
-      "title": "Blog title 2",
-      "author": "Inga",
-      "content": "Lorem IngaIngaIngaIngaInga dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      "title": "Vēl viens blogs",
-      "author": "Amirus",
-      "content": "Hopāaa",
-      "id": 4
-    },
-    {
-      "title": "asdad",
-      "author": "sasad",
-      "content": "asdsad",
-      "id": 5
-    },
-    {
-      "title": "wqewqewq",
-      "author": "qwewqe",
-      "content": "wqewqewq",
-      "id": 6
+      "title": "Virsraksts",
+      "author": "Autors 123",
+      "content": "Šeit daudz teksts un tt",
+      "id": 2
     }
   ],
   "comments": [
     {
-      "postId": "3",
       "author": "Arvīds",
-      "commentText": "qweqeqw",
-      "id": 7
-    },
-    {
-      "postId": "2",
-      "author": "Arvīds",
-      "commentText": "qeqwewq",
-      "id": 8
-    },
-    {
+      "commentText": "Es vēlos šo komentāru labot",
       "postId": "1",
+      "id": 1
+    },
+    {
       "author": "Arvīds",
-      "commentText": "qweqwewqewq",
-      "id": 9
+      "commentText": "Izmainīsim komentārus",
+      "postId": "2",
+      "id": 2
     }
   ],
   "profile": [
