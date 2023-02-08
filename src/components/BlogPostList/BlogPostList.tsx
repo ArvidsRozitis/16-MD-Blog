@@ -23,7 +23,6 @@ const BlogPostList = () => {
   if (!data) {
     throw Error("something went wrong!");
   }
-  console.log(data);
 
   return (
     <div className={style.postsWrapper}>

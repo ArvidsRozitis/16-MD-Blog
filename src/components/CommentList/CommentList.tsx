@@ -10,20 +10,20 @@ type CommentType = {
 };
 
 const CommentList = ({ id }: any) => {
-  console.log("Coment list", id);
-
   const { data, isLoading } = useQuery<CommentType[]>({
     queryKey: ["comments"],
     queryFn: () => getCommentsForPost(id),
   });
 
-  const { mutate: deleteComment } = useDeleteCommentData();
+  const queryClient = useQueryClient();
+  const deletePostMutation = useMutation({
+    mutationFn: deleteComment,
+    onSuccess: () => queryClient.invalidateQueries(["comments"]),
+  });
+
   const handleDeleteCommentClick = (id: number) => {
-    deleteComment(id);
-    
+    deletePostMutation.mutate(id);
   };
-  
-  
 
   if (isLoading) {
     return <h1>Loading....</h1>;
@@ -50,10 +50,6 @@ const CommentList = ({ id }: any) => {
 
 export default CommentList;
 
-
-//===================================axios
-//===================================axios
-//===================================axios
 const getCommentsForPost = (id: string) => {
   return axios
     .get(`http://localhost:3004/comments?postId=${id}`)
@@ -63,20 +59,3 @@ const getCommentsForPost = (id: string) => {
 const deleteComment = (commentId: number) => {
   return axios.delete(`http://localhost:3004/comments/${commentId}`);
 };
-
-
-
-
-//===================================hooks
-//===================================hooks
-//===================================hooks
-//===================================hooks
-const useDeleteCommentData = () => {
-  const queryClient = useQueryClient();
-  return useMutation(deleteComment, {
-    onSuccess: () => {
-      queryClient.invalidateQueries(["comments"]);
-    },
-  });
-};
-

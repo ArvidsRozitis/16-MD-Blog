@@ -4,9 +4,6 @@ import { Home } from "./pages/Home/Home";
 import { BlogPage } from "./pages/Blog/BlogPage";
 import { BlogPost } from "./pages/BlogPost/BlogPost";
 import { AddPost } from "./pages/AddPost/AddPost";
-import { useState } from "react";
-
-// const [currentPage, setCurentPage] = useState(<BlogPost/>)
 
 function App() {
   return (
@@ -36,10 +33,3 @@ function App() {
 }
 
 export default App;
-
-// To do
-//1: Make nav bar whit 2 links and add post button
-//2: Style blog  section
-//3: Create Blog card with read more
-//4: Create big card
-//5 create coment field

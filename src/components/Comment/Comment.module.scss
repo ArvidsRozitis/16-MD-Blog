@@ -44,6 +44,11 @@
   color: #2f4f4f;
 }
 
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .buttonDelete {
   display: flex;
   align-items: center;
@@ -51,9 +56,71 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 1px solid gray;
+  border: none;
+  background-color: transparent;
   transition: background-color 0.2s;
+  cursor: pointer;
+}
+.iconDelete {
+  width: 15px;
+  transition: width 0.25s;
   &:hover {
-    background-color: red;
+    width: 18px;
+  }
+}
+
+.buttonEdit {
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: font-size 0.25s;
+  &:hover {
+    font-size: 0.9rem;
+  }
+}
+.buttonWrapper {
+  position: relative;
+  height: 20px;
+}
+.button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  padding: 2px 4px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  transition: margin-top 0.25s, margin-right 0.2s, background-color 0.2s;
+  &:hover {
+    text-decoration: underline;
+    margin-top: 2px;
+    margin-right: 2px;
+    background-color: lightblue;
+  }
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.form {
+  display: flex;
+  flex-direction: row;
+}
+.inputField {
+  box-sizing: border-box;
+  margin-bottom: 2px;
+  margin-right: 2px;
+  border: 1px solid;
+  border-radius: 2px;
+
+  &:focus {
+    box-shadow: 0px 0px 5px 5px #e4e4e4;
+    outline: none;
+    border: 1px solid;
   }
 }

@@ -1,31 +1,53 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import style from "./BlogPost.module.scss";
 import commentIcon from "../../assets/icons/comment-icon.svg";
 import AddComment from "../../components/AddComment/AddComment";
 import CommentList from "../../components/CommentList/CommentList";
+import { useRef, useState } from "react";
 
 type Post = {
-  id: number;
+  id: string;
   title: string;
   author: string;
   content: string;
 };
 
+type PostProps = {
+  id: string;
+  title: string;
+};
+
 export const BlogPost = () => {
+  const [title, setTitle] = useState(" ");
+  const titleRef: any = useRef();
+  const queryClient = useQueryClient();
   const { id } = useParams();
   const { data, isLoading } = useQuery<Post>({
     queryKey: ["post"],
     queryFn: () => getpostData(id!),
   });
 
+  //========================================
+  const editPostMutation = useMutation({
+    mutationFn: editPost,
+    onSuccess: () => queryClient.invalidateQueries(["post"]),
+  });
+
+  const handleEditSubmit = (id: string) => {
+    editPostMutation.mutate({
+      id: id,
+      title: titleRef.current.value,
+    });
+  };
+
+  //========================================
   const { mutate: deletePost } = useDeletePost();
   const handleDeleteCommentClick = (id: string) => {
     deletePost(id);
   };
-
 
   if (isLoading) {
     return <h1>Loading....</h1>;
@@ -33,8 +55,6 @@ export const BlogPost = () => {
   if (!data) {
     throw Error("something went wrong!");
   }
-
-  console.log(data);
 
   return (
     <div className={style.postWrapper}>
@@ -64,9 +84,30 @@ export const BlogPost = () => {
           </div>
           <p className={style.paragraph}>{data.content}</p>
           <div>
-            <button onClick={() => handleDeleteCommentClick(id!)}>delete</button>
+            <button onClick={() => handleDeleteCommentClick(id!)}>
+              delete
+            </button>
           </div>
         </div>
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleEditSubmit(String(data.id));
+          }}
+        >
+          <label>
+            Title
+            <input
+              ref={titleRef}
+              type="text"
+              value={title}
+              onChange={(e) => {
+                setTitle(e.currentTarget.value);
+              }}
+            />
+          </label>
+        </form>
       </div>
       <AddComment postId={id} />
       <CommentList id={id} />
@@ -82,15 +123,17 @@ const getpostData = (id: string) => {
     .then(({ data }) => data);
 };
 
-
 const deletePost = (id: string) => {
-  return axios.delete(`http://localhost:3004/posts/${id}`)
-}
+  return axios.delete(`http://localhost:3004/posts/${id}`);
+};
+
+const editPost = ({ id, title }: PostProps) => {
+  return axios.put(`http://localhost:3004/posts/${id}`, { title });
+};
 
 const useDeletePost = () => {
   const navigate = useNavigate();
   return useMutation(deletePost, {
-    
     onSuccess: () => navigate(`/blogPage`),
   });
 };

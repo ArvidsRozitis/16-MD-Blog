@@ -1,17 +1,23 @@
 {
   "posts": [
     {
-      "title": "Pievieno testa postu",
-      "author": "Arvīds",
-      "content": "Pievienoju contentuPievienoju contentuPievienoju contentuPievienoju contentuPievienoju contentuPievienoju contentu",
+      "title": "asdsad",
+      "author": "Jauns",
+      "content": "sadsad",
       "id": 1
+    },
+    {
+      "title": "sadsadsads",
+      "author": "sadsadsad",
+      "content": "asdsadsadsad",
+      "id": 2
     }
   ],
   "comments": [
     {
-      "author": "Arvīds",
-      "commentText": "Izlabosim komentāru",
       "postId": "1",
+      "author": "Arvīds",
+      "commentText": "wqewqewqewq",
       "id": 1
     }
   ],
