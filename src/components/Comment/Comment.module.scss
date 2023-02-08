@@ -43,3 +43,17 @@
   font-weight: bold;
   color: #2f4f4f;
 }
+
+.buttonDelete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  transition: background-color 0.2s;
+  &:hover {
+    background-color: red;
+  }
+}

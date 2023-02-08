@@ -1,5 +1,5 @@
 import Comment from "../Comment/Comment";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 type CommentType = {
@@ -11,10 +11,17 @@ type CommentType = {
 
 const CommentList = ({ id }: any) => {
   console.log("Coment list", id);
+
   const { data, isLoading } = useQuery<CommentType[]>({
     queryKey: ["comments"],
-    queryFn: () => getCommentData(id),
+    queryFn: () => getCommentsForPost(id),
   });
+
+  const { mutate } = useDeleteCommentData();
+
+  const handleDeleteCommentClick = (id: number) => {
+    mutate(id);
+  };
 
   if (isLoading) {
     return <h1>Loading....</h1>;
@@ -22,15 +29,16 @@ const CommentList = ({ id }: any) => {
   if (!data) {
     throw Error("something went wrong!");
   }
-  console.log(data);
 
   return (
     <div>
       {data.map((comment) => (
         <Comment
           key={Math.random()}
+          id={comment.id}
           author={comment.author}
           commentText={comment.commentText}
+          onClick={() => handleDeleteCommentClick(comment.id)}
         />
       ))}
     </div>
@@ -39,8 +47,31 @@ const CommentList = ({ id }: any) => {
 
 export default CommentList;
 
-const getCommentData = (id: string) => {
+//===================================axios
+//===================================axios
+//===================================axios
+//===================================axios
+const getCommentsForPost = (id: string) => {
   return axios
     .get(`http://localhost:3004/comments?postId=${id}`)
     .then(({ data }) => data);
 };
+
+const deleteComment = (commentId: number) => {
+  return axios.delete(`http://localhost:3004/comments/${commentId}`);
+};
+
+
+//===================================hooks
+//===================================hooks
+//===================================hooks
+//===================================hooks
+const useDeleteCommentData = () => {
+  const queryClient = useQueryClient();
+  return useMutation(deleteComment, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(["comments"]);
+    },
+  });
+};
+

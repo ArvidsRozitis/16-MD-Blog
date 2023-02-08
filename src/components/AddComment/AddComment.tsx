@@ -1,6 +1,6 @@
 import style from "./AddComment.module.scss";
 import { useRef } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 type CommentProps = {
@@ -12,16 +12,15 @@ type CommentProps = {
 export const AddComment = ({ postId }: any) => {
   const commentRef: any = useRef();
 
-  const createPostMutation = useMutation({
-    mutationFn: UploadComment,
-  });
+  const { mutate } = useAddCommentData();
 
-  const handleAddComment = () => {
-    createPostMutation.mutate({
+  const handleAddCommentSubmit = () => {
+    const comment = {
+      postId: postId,
       author: "Arvīds",
       commentText: commentRef.current.value,
-      postId: postId,
-    });
+    };
+    mutate(comment);
   };
 
   return (
@@ -29,7 +28,7 @@ export const AddComment = ({ postId }: any) => {
       className={style.addCommentFormWrapper}
       onSubmit={(e) => {
         e.preventDefault();
-        handleAddComment();
+        handleAddCommentSubmit();
       }}
     >
       <img
@@ -52,12 +51,15 @@ export const AddComment = ({ postId }: any) => {
 
 export default AddComment;
 
-const UploadComment = ({ author, commentText, postId }: CommentProps) => {
-  return axios
-    .post(`http://localhost:3004/comments`, {
-      author,
-      commentText,
-      postId,
-    })
-    .then(({ data }) => data);
+const addComment = (commentData: CommentProps) => {
+  return axios.post(`http://localhost:3004/comments`, commentData);
+};
+
+const useAddCommentData = () => {
+  const queryClient = useQueryClient();
+  return useMutation(addComment, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(["comments"]);
+    },
+  });
 };

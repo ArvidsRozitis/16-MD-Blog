@@ -23,68 +23,32 @@
       "author": "Amirus",
       "content": "Hopāaa",
       "id": 4
+    },
+    {
+      "title": "asdad",
+      "author": "sasad",
+      "content": "asdsad",
+      "id": 5
     }
   ],
   "comments": [
     {
-      "id": 1,
-      "commentText": "some comment",
       "postId": "1",
-      "author": "Rūdis"
-    },
-    {
       "author": "Arvīds",
-      "commentText": "Pievienojam komentāru",
-      "postId": "1",
-      "id": 2
-    },
-    {
-      "author": "Arvīds",
-      "commentText": "Pievienojam komencitutāru",
-      "postId": "2",
-      "id": 2
-    },
-    {
-      "author": "Arvīds",
-      "commentText": "Pievienošu šim psotam komentāru, lai sapratu ka strādā",
-      "postId": "3",
-      "id": 3
-    },
-    {
-      "author": "Arvīds",
-      "comemntText": "Kas tas tagad par bugu?",
-      "postId": "3",
-      "id": 4
-    },
-    {
-      "author": "Arvīds",
-      "commentText": "Typo tas ir elle :D",
-      "postId": "1",
+      "commentText": "qweqwewqew",
       "id": 5
     },
     {
-      "author": "Arvīds",
-      "commentText": "Typo tas ir elle :D",
-      "postId": "1",
-      "id": 6
-    },
-    {
-      "author": "Arvīds",
-      "commentText": "Var pievienot komentārus un tas strādā :D",
       "postId": "3",
+      "author": "Arvīds",
+      "commentText": "qweqeqw",
       "id": 7
     },
     {
-      "author": "Arvīds",
-      "commentText": "Redzēs, kas te notiek",
       "postId": "2",
+      "author": "Arvīds",
+      "commentText": "qeqwewq",
       "id": 8
-    },
-    {
-      "author": "Arvīds",
-      "commentText": "adas",
-      "postId": "2",
-      "id": 9
     }
   ],
   "profile": [
