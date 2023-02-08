@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 import style from "./BlogPost.module.scss";
 import commentIcon from "../../assets/icons/comment-icon.svg";
 import AddComment from "../../components/AddComment/AddComment";
 import CommentList from "../../components/CommentList/CommentList";
-
 
 type Post = {
   id: number;
@@ -20,7 +20,12 @@ export const BlogPost = () => {
     queryKey: ["post"],
     queryFn: () => getpostData(id!),
   });
-  console.log(id)
+
+  const { mutate: deletePost } = useDeletePost();
+  const handleDeleteCommentClick = (id: string) => {
+    deletePost(id);
+  };
+
 
   if (isLoading) {
     return <h1>Loading....</h1>;
@@ -58,6 +63,9 @@ export const BlogPost = () => {
             </div>
           </div>
           <p className={style.paragraph}>{data.content}</p>
+          <div>
+            <button onClick={() => handleDeleteCommentClick(id!)}>delete</button>
+          </div>
         </div>
       </div>
       <AddComment postId={id} />
@@ -72,4 +80,17 @@ const getpostData = (id: string) => {
   return axios
     .get(`http://localhost:3004/posts/${id}`)
     .then(({ data }) => data);
+};
+
+
+const deletePost = (id: string) => {
+  return axios.delete(`http://localhost:3004/posts/${id}`)
+}
+
+const useDeletePost = () => {
+  const navigate = useNavigate();
+  return useMutation(deletePost, {
+    
+    onSuccess: () => navigate(`/blogPage`),
+  });
 };

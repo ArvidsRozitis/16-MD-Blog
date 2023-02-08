@@ -1,30 +1,18 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "Blog title 1",
+      "title": "Pievieno testa postu",
       "author": "Arvīds",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      "title": "Virsraksts",
-      "author": "Autors 123",
-      "content": "Šeit daudz teksts un tt",
-      "id": 2
+      "content": "Pievienoju contentuPievienoju contentuPievienoju contentuPievienoju contentuPievienoju contentuPievienoju contentu",
+      "id": 1
     }
   ],
   "comments": [
     {
       "author": "Arvīds",
-      "commentText": "Es vēlos šo komentāru labot",
+      "commentText": "Izlabosim komentāru",
       "postId": "1",
       "id": 1
-    },
-    {
-      "author": "Arvīds",
-      "commentText": "Izmainīsim komentārus",
-      "postId": "2",
-      "id": 2
     }
   ],
   "profile": [
