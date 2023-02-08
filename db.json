@@ -29,15 +29,15 @@
       "author": "sasad",
       "content": "asdsad",
       "id": 5
+    },
+    {
+      "title": "wqewqewq",
+      "author": "qwewqe",
+      "content": "wqewqewq",
+      "id": 6
     }
   ],
   "comments": [
-    {
-      "postId": "1",
-      "author": "Arvīds",
-      "commentText": "qweqwewqew",
-      "id": 5
-    },
     {
       "postId": "3",
       "author": "Arvīds",
@@ -49,6 +49,12 @@
       "author": "Arvīds",
       "commentText": "qeqwewq",
       "id": 8
+    },
+    {
+      "postId": "1",
+      "author": "Arvīds",
+      "commentText": "qweqwewqewq",
+      "id": 9
     }
   ],
   "profile": [

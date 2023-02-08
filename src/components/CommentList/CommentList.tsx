@@ -47,9 +47,7 @@ const CommentList = ({ id }: any) => {
 
 export default CommentList;
 
-//===================================axios
-//===================================axios
-//===================================axios
+
 //===================================axios
 const getCommentsForPost = (id: string) => {
   return axios
