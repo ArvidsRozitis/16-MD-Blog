@@ -13,13 +13,20 @@
       "id": 3
     },
     {
-      "title": "wqeqweweqwewq",
-      "author": "qwewqeqwewq",
-      "content": "wqewqewqewqewqeq",
+      "title": "2222222222222",
+      "author": "11111111111",
+      "content": "3333333333333",
       "id": 4
     }
   ],
-  "comments": [],
+  "comments": [
+    {
+      "author": "Arvīds",
+      "commentText": "asdasdsad",
+      "postId": "4",
+      "id": 1
+    }
+  ],
   "profile": [
     {
       "id": 1,

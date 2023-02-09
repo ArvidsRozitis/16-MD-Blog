@@ -1,5 +1,5 @@
 import style from "./BlogPostSingle.module.scss";
-import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import commentIcon from "../../assets/icons/comment-icon.svg";
 import { useNavigate } from "react-router-dom";
 import { deletePost, getSinglePostData } from "../../modules/getData";
@@ -13,10 +13,15 @@ type Post = {
 };
 
 const BlogPostSingle = ({ postId }: any) => {
+  
   const { data, isLoading } = useQuery<Post>({
     queryKey: ["post"],
     queryFn: () => getSinglePostData(postId!),
   });
+
+
+
+  
 
   const navigate = useNavigate();
   const deletePostMutation = useMutation({
@@ -26,6 +31,7 @@ const BlogPostSingle = ({ postId }: any) => {
   const handleDeletePostClick = (id: string) => {
     deletePostMutation.mutate(id);
   };
+
 
   if (isLoading) {
     return <h1>Loading....</h1>;
@@ -72,28 +78,14 @@ const BlogPostSingle = ({ postId }: any) => {
             </button>
           </div>
         </div>
+        {/* <EditPostForm id={postId}/> */}
 
-        {/* <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleEditSubmit(String(data.id));
-          }}
-        >
-          <label>
-            Title
-            <input
-              ref={titleRef}
-              type="text"
-              value={title}
-              onChange={(e) => {
-                setTitle(e.currentTarget.value);
-              }}
-            />
-          </label>
-        </form> */}
+       
       </div>
     </div>
   );
 };
 
 export default BlogPostSingle;
+
+

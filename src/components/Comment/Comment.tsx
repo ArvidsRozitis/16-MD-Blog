@@ -26,7 +26,7 @@ const Comment = ({
   id,
   postId,
 }: CommentProps) => {
-  const [comment, setComment] = useState(commentText);
+  const [comment, setComment] = useState('');
   const [visableEditField, setVisableEditField] = useState(false);
   const { mutate: editComment } = useEditCommentData();
 
@@ -75,6 +75,7 @@ const Comment = ({
               onSubmit={(e) => {
                 e.preventDefault();
                 handleEditCommentSubmit();
+
               }}
             >
               <input

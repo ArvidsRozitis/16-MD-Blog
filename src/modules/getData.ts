@@ -1,6 +1,4 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useMutation } from "@tanstack/react-query";
 
 type PostProps = {
   title: string;
@@ -38,14 +36,10 @@ const createPost = ({ title, author, content }: PostProps) => {
     .then(({ data }) => data);
 };
 
-
-
-
-
 export {
   getpostData,
   getSinglePostData,
   getCommentsForPost,
   deletePost,
-  createPost
+  createPost,
 };
