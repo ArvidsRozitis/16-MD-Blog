@@ -2,13 +2,7 @@ import style from "./AddPost.module.scss";
 import { useRef } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-
-type PostProps = {
-  title: string;
-  author: string;
-  content: string;
-};
+import { createPost } from "../../modules/getData";
 
 export const AddPost = () => {
   const authorRef: any = useRef();
@@ -59,13 +53,3 @@ export const AddPost = () => {
 };
 
 export default AddPost;
-
-const createPost = ({ title, author, content }: PostProps) => {
-  return axios
-    .post(`http://localhost:3004/posts`, {
-      title,
-      author,
-      content,
-    })
-    .then(({ data }) => data);
-};

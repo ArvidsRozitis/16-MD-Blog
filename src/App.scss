@@ -12,7 +12,6 @@
   width: calc(80vw);
   max-width: 1200px;
   min-width: 320px;
-  background-color: rgb(175, 175, 175);
   box-shadow: 5px 5px 100px 20px rgb(160, 160, 160);
   border-radius: 30px;
   padding-bottom: 30px;
@@ -45,6 +44,7 @@
 
 .pageSelection {
   display: flex;
+  align-items: flex-start;
   gap: 10px;
 }
 
@@ -68,4 +68,10 @@
     margin-right: 1px;
     background-color: #afe643;
   }
+}
+
+.home__page {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
 }

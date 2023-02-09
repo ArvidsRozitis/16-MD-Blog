@@ -42,59 +42,66 @@ const Comment = ({
   };
 
   return (
-    <div className={style.commentContainer}>
-      <img
-        src="https://picsum.photos/200"
-        alt="user image"
-        className={style.userPicture}
-      />
-      <div className={style.commentWrapper}>
-        <div className={style.commentInfoWrapper}>
-          <h3 className={style.user}>{author}</h3>
-          <h3 className={style.helperText}>date: 2023.12.12</h3>
-        </div>
-        <p className={style.paragraph}>{commentText}</p>
-        <div className={style.buttonContainer}>
-          <button
-            className={style.buttonEdit}
-            onClick={() => setVisableEditField(!visableEditField)}
-          >
-            edit
-          </button>
-          <button className={style.buttonDelete} onClick={onClickDelete}>
-            <img src={deleteIcon} alt="del" className={style.iconDelete} />
-          </button>
-        </div>
+    <div className={style.comment}>
+      <div className={style.commentContainer}>
+        <img
+          src="https://picsum.photos/200"
+          alt="user image"
+          className={style.userPicture}
+        />
+        <div className={style.commentWrapper}>
+          <div className={style.commentInfoWrapper}>
+            <h3 className={style.user}>{author}</h3>
+            <h3 className={style.helperText}>date: 2023.12.12</h3>
+          </div>
+          <p className={style.paragraph}>{commentText}</p>
+          <div className={style.buttonContainer}>
+            <button
+              className={style.buttonEdit}
+              onClick={() => setVisableEditField(!visableEditField)}
+            >
+              edit
+            </button>
+            <button className={style.buttonDelete} onClick={onClickDelete}>
+              <img src={deleteIcon} alt="del" className={style.iconDelete} />
+            </button>
+          </div>
 
-        {visableEditField? <h1>heiii</h1> : null}
+          {visableEditField ? <h1>heiii</h1> : null}
 
-        <div className={style.formContainer}>
-          <form
-            className={style.form}
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleEditCommentSubmit();
-            }}
-          >
-            <input
-              className={style.inputField}
-              type="text"
-              value={comment}
-              onChange={(e) => {
+          <div className={style.formContainer}>
+            <form
+              className={style.form}
+              onSubmit={(e) => {
                 e.preventDefault();
-                setComment(e.target.value);
+                handleEditCommentSubmit();
               }}
-            />
-            <div>
-              <button>save</button>
+            >
+              <input
+                className={style.inputField}
+                type="text"
+                value={comment}
+                onChange={(e) => {
+                  e.preventDefault();
+                  setComment(e.target.value);
+                }}
+              />
+              <div>
+                <button>save</button>
+              </div>
+            </form>
+            <div className={style.buttonWrapper}>
+              <button
+                className={style.button}
+                onClick={() => setVisableEditField(!visableEditField)}
+              >
+                cancel
+              </button>
             </div>
-          </form>
-          <div className={style.buttonWrapper}>
-            <button className={style.button} onClick={() => setVisableEditField(!visableEditField)}>cancel</button>
           </div>
         </div>
-        
       </div>
+      <hr className={style.hr} />
     </div>
   );
 };
@@ -118,6 +125,4 @@ const useEditCommentData = () => {
   });
 };
 
-function commentForm () {
-  
-}
+function commentForm() {}

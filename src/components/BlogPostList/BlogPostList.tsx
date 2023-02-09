@@ -1,8 +1,7 @@
 import BlogPostCard from "../BlogPostCard/BlogPostCard";
-import { Link } from "react-router-dom";
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import style from "./BlogPostList.module.scss";
+import { getpostData } from "../../modules/getData";
 
 type Post = {
   id: number;
@@ -27,25 +26,16 @@ const BlogPostList = () => {
   return (
     <div className={style.postsWrapper}>
       {data.map((post) => (
-        <Link
-          className={style.cardlink}
+        <BlogPostCard
           key={post.id}
-          to={`/blogPost/${post.id}`}
-        >
-          <BlogPostCard
-            id={post.id}
-            title={post.title}
-            author={post.author}
-            content={post.content}
-          />
-        </Link>
+          postId={post.id}
+          title={post.title}
+          author={post.author}
+          content={post.content}
+        />
       ))}
     </div>
   );
 };
 
 export default BlogPostList;
-
-const getpostData = () => {
-  return axios.get("http://localhost:3004/posts").then(({ data }) => data);
-};

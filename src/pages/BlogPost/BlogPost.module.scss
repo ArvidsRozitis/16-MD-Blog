@@ -1,16 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Cormorant:ital@1&display=swap");
 
 .postWrapper {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 10px;
 }
 .postContainer {
   background-color: #ffffff;
   max-width: 800px;
-  display: flex;
-  align-items: flex-start;
+  
 }
 .hr {
   margin: 0;
@@ -24,24 +20,15 @@
 
 .picture {
   width: 300px;
+  object-fit: cover;  
 }
 .infoWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
 }
 .topWrapper {
-  display: flex;
-  justify-content: space-between;
 }
 .secoundWrapper {
-  display: flex;
-  justify-content: space-between;
 }
 .botWrapper {
-  display: flex;
-  justify-content: space-between;
 }
 .title {
   font-family: "Cormorant", serif;
@@ -71,10 +58,6 @@
   line-height: 1.3;
 }
 .commentCountContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
 }
 .commentIcon {
   width: 22px;

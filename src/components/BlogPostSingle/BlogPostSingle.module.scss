@@ -1,52 +1,46 @@
-@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Cormorant:ital@1&display=swap");
-
-.cardlink {
-  all: unset;
-  cursor: pointer;
+.postWrapper {
+  padding: 10px;
 }
-.container {
+.postContainer {
   display: flex;
-}
-.hr {
-  margin: 0;
-  margin-top: 20px;
-  border: 1px solid #d3d3d3;
-  width: 1px;
-  border-radius: 50%;
-  width: 98%;
-  align-self: center;
 }
 
 .picture {
-  width: 200px;
+  width: 300px;
   object-fit: cover;
 }
+
 .infoWrapper {
   display: flex;
   flex-direction: column;
-  width: 100%; 
-  padding: 5px; 
-  gap: 10px
+  width: 100%;
+  padding: 5px;
+  gap: 10px;
 }
+
 .topWrapper {
   display: flex;
   justify-content: space-between;
   padding-left: 10px;
-  
+}
+.secoundWrapper {
+  display: flex;
+  align-items: flex-start;
+}
+.bottomInfoWrapper {
+  display: flex;
+
 }
 .botWrapper {
   display: flex;
   justify-content: space-between;
-  
 }
 .title {
   font-family: "Cormorant", serif;
   font-size: 2rem;
   font-weight: 500;
   color: #dc143c;
-  cursor: pointer;
 }
-
 .date {
   font-size: 0.75rem;
   font-weight: bold;
@@ -83,11 +77,24 @@
   font-weight: 500;
 }
 
-.readMore{
-  text-decoration: underline;
-  color: #1F618D;
-  transition: font-size 0.25s;
+.buttonDelete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  transition: background-color 0.2s;
+  cursor: pointer;
   &:hover {
-    font-size: 1.2rem;
+    text-decoration: underline;
+  }
+}
+.iconDelete {
+  width: 18px;
+  transition: width 0.25s;
+  &:hover {
+    width: 22px;
   }
 }

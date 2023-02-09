@@ -1,25 +1,28 @@
 import style from "./BlogPostCard.module.scss";
 import commentIcon from "../../assets/icons/comment-icon.svg";
+import { Link } from "react-router-dom";
 
 type PostProps = {
-  id: number;
+  postId: number;
   title: string;
   author: string;
   content: string;
 };
 
-export const BlogPostCard = ({ title, author, content, id }: PostProps) => {
+export const BlogPostCard = ({ title, author, content, postId }: PostProps) => {
   return (
     <div className={style.wrapper}>
       <div className={style.container}>
         <img
-          src="https://picsum.photos/400"
+          src={`https://picsum.photos/id/${postId}/400`}
           alt="blog picture"
           className={style.picture}
         />
         <div className={style.infoWrapper}>
           <div className={style.topWrapper}>
-            <h2 className={style.title}>{title}</h2>
+            <Link className={style.cardlink} to={`/blogPost/${postId}`}>
+              <h2 className={style.title}>{title}</h2>
+            </Link>
             <span className={style.date}>created: 2022.10.01.</span>
           </div>
           <div>
@@ -30,9 +33,11 @@ export const BlogPostCard = ({ title, author, content, id }: PostProps) => {
           <div className={style.botWrapper}>
             <div className={style.commentCountContainer}>
               <img src={commentIcon} alt="icon" className={style.commentIcon} />
-              <span className={style.commentCount}>0</span>
+              <span className={style.commentCount}>{0}</span>
             </div>
-            <span className={style.comments}>read more</span>
+            <Link className={style.cardlink} to={`/blogPost/${postId}`}>
+              <span className={style.readMore}>read more</span>
+            </Link>
           </div>
         </div>
       </div>
