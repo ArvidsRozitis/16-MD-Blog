@@ -12,16 +12,15 @@ type Post = {
   content: string;
 };
 
+type SinbleBlogParam = {
+  postId: string;
+};
+
 const BlogPostSingle = ({ postId }: any) => {
-  
   const { data, isLoading } = useQuery<Post>({
     queryKey: ["post"],
     queryFn: () => getSinglePostData(postId!),
   });
-
-
-
-  
 
   const navigate = useNavigate();
   const deletePostMutation = useMutation({
@@ -32,13 +31,13 @@ const BlogPostSingle = ({ postId }: any) => {
     deletePostMutation.mutate(id);
   };
 
-
   if (isLoading) {
     return <h1>Loading....</h1>;
   }
   if (!data) {
     throw Error("something went wrong!");
   }
+
   return (
     <div className={style.postWrapper}>
       <div className={style.postContainer}>
@@ -79,13 +78,9 @@ const BlogPostSingle = ({ postId }: any) => {
           </div>
         </div>
         {/* <EditPostForm id={postId}/> */}
-
-       
       </div>
     </div>
   );
 };
 
 export default BlogPostSingle;
-
-

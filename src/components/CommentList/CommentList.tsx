@@ -14,6 +14,7 @@ const CommentList = ({ id }: any) => {
     queryKey: ["comments"],
     queryFn: () => getCommentsForPost(id),
   });
+  console.log(data)
 
   const queryClient = useQueryClient();
   const deletePostMutation = useMutation({
@@ -52,7 +53,7 @@ export default CommentList;
 
 const getCommentsForPost = (id: string) => {
   return axios
-    .get(`http://localhost:3004/comments?postId=${id}`)
+    .get(`http://localhost:3004/posts/1/comments`)
     .then(({ data }) => data);
 };
 

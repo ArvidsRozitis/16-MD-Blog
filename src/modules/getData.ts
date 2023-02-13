@@ -6,19 +6,26 @@ type PostProps = {
   content: string;
 };
 
+type Post = {
+  id: string;
+  title: string;
+  author: string;
+  content: string;
+};
+
 const getpostData = () => {
-  return axios.get("http://localhost:3004/posts").then(({ data }) => data);
+  return axios.get("http://localhost:3004/posts").then((res) => res.data);
 };
 
 const getSinglePostData = (id: string) => {
   return axios
-    .get(`http://localhost:3004/posts/${id}`)
+    .get<Post>(`http://localhost:3004/posts/${id}`)
     .then(({ data }) => data);
 };
 
 const getCommentsForPost = (postId: string) => {
   return axios
-    .get(`http://localhost:3004/comments?postId=${postId}`)
+    .get(`http://localhost:3004/posts/1/comments`)
     .then(({ data }) => data);
 };
 
@@ -33,7 +40,9 @@ const createPost = ({ title, author, content }: PostProps) => {
       author,
       content,
     })
-    .then(({ data }) => data);
+    .then(({ data }) => {
+      return data;
+    });
 };
 
 export {

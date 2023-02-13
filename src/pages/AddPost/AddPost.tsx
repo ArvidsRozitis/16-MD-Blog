@@ -12,7 +12,7 @@ export const AddPost = () => {
 
   const createPostMutation = useMutation({
     mutationFn: createPost,
-    onSuccess: (data) => navigate(`/blogPost/${data.id}`),
+    onSuccess: (data) => navigate(`/blogPost/${data.insertId}`),
   });
 
   const handleSubmit = () => {
