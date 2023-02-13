@@ -53,10 +53,10 @@ export default CommentList;
 
 const getCommentsForPost = (id: string) => {
   return axios
-    .get(`http://localhost:3004/posts/1/comments`)
+    .get(`http://localhost:3004/posts/comments/${id}`)
     .then(({ data }) => data);
 };
 
 const deleteComment = (commentId: number) => {
-  return axios.delete(`http://localhost:3004/comments/${commentId}`);
+  return axios.delete(`http://localhost:3004/posts/comments/${commentId}`);
 };

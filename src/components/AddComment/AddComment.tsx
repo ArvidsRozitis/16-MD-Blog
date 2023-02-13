@@ -16,9 +16,9 @@ export const AddComment = ({ postId }: any) => {
 
   const handleAddCommentSubmit = () => {
     const comment = {
-      postId: postId,
       author: "Arvīds",
       commentText: commentRef.current.value,
+      postId: postId,
     };
     mutate(comment);
   };
@@ -52,7 +52,11 @@ export const AddComment = ({ postId }: any) => {
 export default AddComment;
 
 const addComment = (commentData: CommentProps) => {
-  return axios.post(`http://localhost:3004/comments`, commentData);
+  return axios
+    .post(`http://localhost:3004/posts/comments`, commentData)
+    .then((res) => {
+      console.log("notika", res);
+    });
 };
 
 const useAddCommentData = () => {

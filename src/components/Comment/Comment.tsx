@@ -110,10 +110,12 @@ const Comment = ({
 export default Comment;
 
 const editComment = ({ id, author, commentText, postId }: Comment) => {
-  return axios.put(`http://localhost:3004/comments/${id}`, {
+  return axios.put(`http://localhost:3004/posts/comments/${id}`, {
     author,
     commentText,
     postId,
+  }).then((res)=> {
+    console.log('res', res)
   });
 };
 

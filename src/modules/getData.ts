@@ -23,12 +23,6 @@ const getSinglePostData = (id: string) => {
     .then(({ data }) => data);
 };
 
-const getCommentsForPost = (postId: string) => {
-  return axios
-    .get(`http://localhost:3004/posts/1/comments`)
-    .then(({ data }) => data);
-};
-
 const deletePost = (id: string) => {
   return axios.delete(`http://localhost:3004/posts/${id}`);
 };
@@ -48,7 +42,7 @@ const createPost = ({ title, author, content }: PostProps) => {
 export {
   getpostData,
   getSinglePostData,
-  getCommentsForPost,
+  // getCommentsForPost,
   deletePost,
   createPost,
 };

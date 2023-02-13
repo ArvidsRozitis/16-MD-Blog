@@ -8,6 +8,7 @@ export const AddPost = () => {
   const authorRef: any = useRef();
   const titleRef: any = useRef();
   const contentRef: any = useRef();
+  const imageRef: any = useRef();
   const navigate = useNavigate();
 
   const createPostMutation = useMutation({
@@ -29,9 +30,14 @@ export const AddPost = () => {
         className={style.addPostContainer}
         onSubmit={(e) => {
           e.preventDefault();
+          console.log(imageRef.file)
           handleSubmit();
         }}
       >
+        <label className={style.inputLabel}>
+          image
+          <input type="file" ref={imageRef}/>
+        </label>
         <label className={style.inputLabel}>
           Author
           <input type="text" ref={authorRef} />
