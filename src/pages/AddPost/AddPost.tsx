@@ -26,18 +26,23 @@ export const AddPost = () => {
 
   return (
     <div>
+      <form onSubmit={(e) => {
+          e.preventDefault();
+          console.log(imageRef.current.files);
+        }}>
+        <input type="file" ref={imageRef} />
+        <button>add</button>
+      </form>
+
+
       <form
         className={style.addPostContainer}
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(imageRef.file)
+          console.log(imageRef.current.files);
           handleSubmit();
         }}
       >
-        <label className={style.inputLabel}>
-          image
-          <input type="file" ref={imageRef}/>
-        </label>
         <label className={style.inputLabel}>
           Author
           <input type="text" ref={authorRef} />
@@ -59,3 +64,4 @@ export const AddPost = () => {
 };
 
 export default AddPost;
+
